@@ -11,9 +11,7 @@ int main(int argc, char **argv)
 	// Gives our banker a badass name
 	// (http://en.wikipedia.org/wiki/Jerome_Kerviel)
 	banker jerome;
-	
-	int i, j;
-	
+
 	// Randomizes the number of customers
 	int nb_customers = rdm_nbr_between(5,10);
 	customer customers[nb_customers];
@@ -22,23 +20,36 @@ int main(int argc, char **argv)
 	
 	// Prints a report of the customers
 	report_customers(customers, nb_customers);
-	
-	
-	// Computes the available number of ressources 
-	for (j = 0; j < NB_TYPES_RES; j++) {
-		jerome.total_res[j] = 0;
-		for (i = 0; i < nb_customers; i++) {
-			jerome.total_res[j] += customers[i].max_res[j];
-		}
-		
-		// Multiplies total by 0.6 and round up.
-		jerome.free_res[j] = 1 + (5*jerome.total_res[j]/ 3);
-	}
 
-	// Prints a report of the banker
+	// Determines how much the banker should have available
+	find_ideal_res_for_banker(customers, nb_customers, &jerome);
+
+
 	report_banker(jerome);
+
+	int safe_state = 1;
+	while(safe_state) {
+		
+		int id;
+		for (id = 0; id < nb_customers; id++) {
+			rdm_customer_req(&customers[id]);
+			
+			if (banker_grant_req(customers[id], nb_customers, jerome)) {
+				//customers[id].stock[]
+			}
+		}
+
+		
+		if (safe_state > 3){
+			printf("Simulation ran %d times ", safe_state-1);
+			printf("before reaching an unsafe state.\n");
+			safe_state = 0;
+			break;
+		}
+		safe_state++;
+	}
+	report_customers(customers, nb_customers);
+
+
 	return 0;
 }
-
-
-
