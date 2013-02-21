@@ -7,16 +7,26 @@
  * 
  * MIN_NB_CUST - MAX_NB_CUST are the minimum and maximum
  * number of customers to create for the simulation.
+ *
+ * MIN_RES_LIM - MAX_RES_LIM are the minimum and maximum
+ * number of ressources that a customer can ask to be available
+ * at the bank initially.
  * 
  * The requests made by the customers will be chosen between 
  * MIN_REQUEST and MAX_REQUEST.
  */
-#define RES_TYPE 9
+#define RES_TYPE 4
+
 #define NB_MAX_OF_SIMULATIONS 202
+
 #define MAX_NB_CUST 12
 #define MIN_NB_CUST 5
+
+#define MAX_RES_LIM 12
+#define MIN_RES_LIM 5
+
 #define MAX_REQUEST 5
-#define MIN_REQUEST 5
+#define MIN_REQUEST 0
 
 int id;
 int res;

@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	banker jerome;
 
 	// Randomizes the number of customers
-	int nb_customers = rdm_nbr_between(5,10);
+	int nb_customers = rdm_nbr_between(MIN_NB_CUST,MAX_NB_CUST);
 	customer customers[nb_customers];
 	
 	rdm_customer_res(customers, nb_customers);
