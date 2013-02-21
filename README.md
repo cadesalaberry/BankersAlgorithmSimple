@@ -45,16 +45,16 @@ When Cathy releases the funding, the banker will have 10K and he can the other c
 
 ##Output Explaination
 
->Simulation did 18 transactions before reaching an unsafe state.
+	Simulation did 18 transactions before reaching an unsafe state.
 
->Customers	res0	res1	res2	res3
-#0		5?5/8	5?5/7	5?5/8	5?5/10
-#1		5?5/8	5?5/11	5?5/11	5?0/5
-#2		5?5/11	5?5/12	5?5/7	5?5/6
-#3		5?5/6	5?5/10	5?5/6	5?5/7
-#4		5?0/6	5?5/11	5?0/8	5?5/9
-Banker
-Stock:		3	5	4	2
-Total:		39	51	40	37
-Safe:		1	2	1	1
-Deny:		5	4	4	4
+	Customers	res0	res1	res2	res3
+	#0		5?5/8	5?5/7	5?5/8	5?5/10
+	#1		5?5/8	5?5/11	5?5/11	5?0/5
+	#2		5?5/11	5?5/12	5?5/7	5?5/6
+	#3		5?5/6	5?5/10	5?5/6	5?5/7
+	#4		5?0/6	5?5/11	5?0/8	5?5/9
+	Banker
+	Stock:		3	5	4	2
+	Total:		39	51	40	37
+	Safe:		1	2	1	1
+	Deny:		5	4	4	4
