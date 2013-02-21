@@ -16,7 +16,7 @@
 
 	
 
-#Resource Manager with Banker’s Algorithm
+# Resource Manager with Banker’s Algorithm
 -----------------------------------------
 At this point, the resource manager will printout the allocation matrix and terminate the simulation.
 at this point. One way of satisfying the customers is to give 2K to Cathy and let her complete her project. We assume that once the maximum funding is given the customers are going to complete their activities and release the resource (money in the case of the banker).
@@ -25,7 +25,7 @@ Consider a resource allocation problem with N processes and 4 resource types, wh
 Consider a situation where Paul, Martin, and Cathy have already borrowed 5K, 3K, and 7K, respectively. The banker has 3K left in the reserve. The banker is in safe state because he can satisfy the requests
 However, the banker is obliged to satisfy requests up to the agreed maximum. That is, Paul can borrow a sum up to 10K. If his requests (sum of all requests or a single request) exceeds 10K, the un-conforming requests will be rejected by the banker.
 
-##What Do You Need To Do?
+## What Do You Need To Do?
 
 
 Learn the Banker’s algorithm.
@@ -42,8 +42,7 @@ We can trivially generalize this algorithm to a computer resource allocation pro
 
 When Cathy releases the funding, the banker will have 10K and he can the other customers’ requests in any given order. So the state is indeed safe.
 
-
-##Output Explaination
+## Sample Output
 
 	Simulation did 18 transactions before reaching an unsafe state.
 
@@ -54,7 +53,32 @@ When Cathy releases the funding, the banker will have 10K and he can the other c
 	#3		5?5/6	5?5/10	5?5/6	5?5/7
 	#4		5?0/6	5?5/11	5?0/8	5?5/9
 	Banker
-	Stock:		3	5	4	2
+	Stock:		3	5	4	2	
 	Total:		39	51	40	37
 	Safe:		1	2	1	1
 	Deny:		5	4	4	4
+
+##Output Explaination
+
+	Simulation did 18 transactions before reaching an unsafe state.
+
+	Customers	res0	res1	res2	res3
+	#0      5?5/8	5?5/7	5?5/8	5?5/10
+	#1      5?5/8	5?5/11	5?5/11	5?0/5
+	#2      5?5/11	5?5/12	5?5/7	5?5/6
+	#3      5?5/6	5?5/10	5?5/6	5?5/7
+	#4      5?0/6	5?5/11	5?0/8	5?5/9
+	        ^ ^ ^
+	        | | |
+	        | | Max number of ressources of type 0 that customer 4 can hold
+	        | | 
+	        | Number of ressources of type 0 hold by customer 4
+	        |
+	        Number of ressources of type 0 asked by customer 4
+
+	Banker
+	Stock:		3	5	4	2 	<------ Current number of ressources	
+	Total:		39	51	40	37	<------ Total sum of ressources asked
+	Safe:		1	2	1	1 	<------ Nb of ressources it is safe to have
+	Deny:		5	4	4	4 	<------ Nb of times ressources has been denied
+
